@@ -65,9 +65,10 @@
 		<!--Swagger Gerekli tüm bağımlılıkları içeren sade bir yapı -->
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 		</dependency>
+
 		<!-- Swagger Gerekli tüm bağımlılıkları içeren sade bir yapı -->
 	</dependencies>
 
