@@ -1,5 +1,7 @@
 package com.tobeto.spring._b.controllers;
 
+import com.tobeto.spring._b.dtos.BrandForAddDto;
+import com.tobeto.spring._b.dtos.BrandForDetailDto;
 import com.tobeto.spring._b.entities.Brand;
 import com.tobeto.spring._b.repositories.BrandRepository;
 import org.springframework.web.bind.annotation.*;
@@ -18,15 +20,29 @@ public class BrandsController
 
 
    @GetMapping
-    public List<Brand> getAll(){
+    public List<Brand> getAll()
+   {
        return brandRepository.findAll();
+
     }
+
     @GetMapping("{id}")
-    public Brand getById(@PathVariable int id){
-       return brandRepository.findById(id).orElseThrow();
+    public BrandForDetailDto getById(@PathVariable int id)
+    {
+        Brand brand =brandRepository.findById(id).orElseThrow();
+
+        BrandForDetailDto dto = new BrandForDetailDto();
+        dto.setName(brand.getName());
+        return dto;
     }
     @PostMapping
-    public void add(@RequestBody Brand brand){
+    //Brand X
+    //BrandForAddDto
+    public void add(@RequestBody BrandForAddDto brandForAddDto){
+        //manuel mapping--> sonrasında Auto Mapping çeviricez
+        Brand brand =new Brand();
+        brand.setName(brandForAddDto.getName());
+
       brandRepository.save(brand);
     }
     @PutMapping
