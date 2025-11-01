@@ -3,6 +3,7 @@ package com.tobeto.spring._b.controllers;
 import com.tobeto.spring._b.entities.Brand;
 import com.tobeto.spring._b.services.abstracts.BrandService;
 import com.tobeto.spring._b.services.dtos.requests.brand.AddBrandRequest;
+import com.tobeto.spring._b.services.dtos.responses.brand.GetBrandListResponse;
 import com.tobeto.spring._b.services.dtos.responses.brand.GetBrandResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -24,12 +25,13 @@ public class BrandsController {
    }
 
     @PostMapping
-    public void add(@RequestBody AddBrandRequest request) {
+    public void add(@RequestBody AddBrandRequest request)
+    {
         this.brandService.add(request);
     }
 
     @GetMapping()
-    public List<Brand> getByName(@RequestParam String name,@RequestParam int id)
+    public List<GetBrandListResponse> getByName(@RequestParam String name, @RequestParam int id)
     {
       return this.brandService.getByName(name,id);
     }
