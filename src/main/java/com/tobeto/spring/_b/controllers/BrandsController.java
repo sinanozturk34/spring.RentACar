@@ -35,8 +35,9 @@ public class BrandsController {
     {
       return this.brandService.getByName(name,id);
     }
-    @GetMapping("/search")
-    public List<Brand> search(@RequestParam String name){
+    @GetMapping("search")
+    public List<GetBrandListResponse> search(@RequestParam String name){
+
        return this.brandService.search(name);
     }
 
