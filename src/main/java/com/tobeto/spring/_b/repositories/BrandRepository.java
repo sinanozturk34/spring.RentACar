@@ -23,6 +23,5 @@ public interface BrandRepository extends JpaRepository<Brand, Integer> {
     "FROM Brand b Where b.name LIKE %:name%")
     List<GetBrandListResponse> search3(String name);
 
-    @Query(value = "Select b.name as name from brands b Where b.name LIKE %:name%", nativeQuery = true)
-    List<GetBrandListResponse> search4(String name);
+
 }
