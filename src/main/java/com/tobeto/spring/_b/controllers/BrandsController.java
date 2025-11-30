@@ -5,7 +5,10 @@ import com.tobeto.spring._b.services.abstracts.BrandService;
 import com.tobeto.spring._b.services.dtos.requests.brand.AddBrandRequest;
 import com.tobeto.spring._b.services.dtos.responses.brand.GetBrandListResponse;
 import com.tobeto.spring._b.services.dtos.responses.brand.GetBrandResponse;
+<<<<<<< HEAD
 import jakarta.validation.Valid;
+=======
+>>>>>>> 9a9bd79cfb6f648d705bb65f8b056401950aba11
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +29,7 @@ public class BrandsController {
    }
 
     @PostMapping
+
     public void add(@RequestBody @Valid AddBrandRequest request)
     {
         this.brandService.add(request);
