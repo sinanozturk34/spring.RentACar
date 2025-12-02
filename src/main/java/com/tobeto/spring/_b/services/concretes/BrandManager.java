@@ -22,9 +22,12 @@ public class BrandManager implements BrandService
 
     @Override
     public void add(AddBrandRequest request) {
-        if(request.getName().length() < 2)
-            throw new RuntimeException("Marka adı iki haneden kısa olamaz");
-
+       //Aynı isimde iki brand olamaz,aynı isimle name demek metod adı
+        List<Brand> brandsWithSameName= brandRepository.findByName(request.getName().trim());
+        if(brandsWithSameName.size() > 0)
+        {
+            throw new RuntimeException("Aynı isimle iki marka eklenemez.");
+        }
         Brand brand =new Brand();
         brand.setName(request.getName());
 

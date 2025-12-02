@@ -9,6 +9,9 @@ import java.util.List;
 
 public interface BrandRepository extends JpaRepository<Brand, Integer> {
     List<Brand> findByNameLikeOrIdEquals(String name, int id);
+    //aynı isimli name olma durumu,postgre bakar
+    List<Brand> findByName(String name);
+
 
     //sql d--> Select * from Brands;
     //JPQL--->@Query("SELECT b FROM Brand b")
