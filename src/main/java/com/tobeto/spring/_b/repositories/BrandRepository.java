@@ -12,6 +12,7 @@ public interface BrandRepository extends JpaRepository<Brand, Integer> {
     //aynı isimli name olma durumu,postgre bakar
     List<Brand> findByName(String name);
 
+    boolean existsByName(String name);
 
     //sql d--> Select * from Brands;
     //JPQL--->@Query("SELECT b FROM Brand b")
